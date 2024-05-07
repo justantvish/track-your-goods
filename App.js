@@ -1,46 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { NavigationContainer } from '@react-navigation/native';
+import ListsScreen from './screens/ListsScreen';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import ProfileScreen from './screens/ProfileScreen';
+import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from './constants/colors';
-import { useFonts as useRubik, Rubik_400Regular } from '@expo-google-fonts/rubik';
-import { useFonts, Oswald_700Bold } from '@expo-google-fonts/oswald';
+
+const Tabs = createBottomTabNavigator();
 
 export default function App() {
-
-    let [rubikLoaded, rubikError] = useRubik({
-        Rubik_400Regular,
-    });
-
-    let [fontsLoaded, fontError] = useFonts({
-        Oswald_700Bold,
-      });
-    
-      if (!fontsLoaded && !fontError) {
-        return null;
-      }
-    
-    if (!rubikLoaded && !rubikError) {
-        return null;
-    }
-
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Testing app props</Text>
-            
+        <>
             <StatusBar style="dark" />
-        </View>
+            <NavigationContainer>
+                <Tabs.Navigator>
+                    <Tabs.Screen
+                        name="Lists"
+                        component={ListsScreen}
+                        options={{
+                            tabBarInactiveTintColor: COLORS.main,
+                            tabBarIcon: ({focused}) => <Ionicons name="home" color={focused ? COLORS.main : COLORS.add} size={24} />
+                        }}
+                    />
+
+                    <Tabs.Screen
+                        name="Profile"
+                        component={ProfileScreen}
+                    />
+                </Tabs.Navigator>
+            </NavigationContainer>
+        </>
     );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.bg,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    color: COLORS.text,
-    fontSize: 24,
-    fontFamily: 'Oswald_700Bold'
-  }
-});

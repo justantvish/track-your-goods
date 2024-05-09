@@ -7,16 +7,25 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ProfileScreen from './screens/ProfileScreen';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from './constants/colors';
-import { useFonts, Oswald_700Bold } from '@expo-google-fonts/oswald';
+import { useFonts as useOswald, Oswald_700Bold } from '@expo-google-fonts/oswald';
+import { useFonts as useRubik, Rubik_400Regular } from '@expo-google-fonts/rubik';
 
 const Tabs = createBottomTabNavigator();
 
 export default function App() {
-    let [fontsLoaded, fontError] = useFonts({
+    let [oswaldLoaded, oswaldfontError] = useOswald({
         Oswald_700Bold,
     });
+
+    let [rubikLoaded, rubikError] = useRubik({
+        Rubik_400Regular,
+    });
     
-    if (!fontsLoaded && !fontError) {
+    if (!oswaldLoaded && !oswaldfontError) {
+        return null;
+    }
+
+    if (!rubikLoaded && !rubikError) {
         return null;
     }
 
@@ -62,7 +71,7 @@ export default function App() {
                         name="Lists"
                         component={ListsScreen}
                         options={{
-                            tabBarIcon: ({color}) => <Ionicons name="home" color={color} size={24} />
+                            tabBarIcon: ({color}) => <Ionicons name="list" color={color} size={24} />
                         }}
                     />
 

@@ -3,5 +3,5 @@ export const COLORS = {
     main: '#FF9800',
     text: '#2C7865',
     add: '#90D26D',
-    bgAlt: '#e2f1cd',
+    bgAlt: '#CCE8D1',
 }

@@ -9,6 +9,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from './constants/colors';
 import { useFonts as useOswald, Oswald_700Bold } from '@expo-google-fonts/oswald';
 import { useFonts as useRubik, Rubik_400Regular } from '@expo-google-fonts/rubik';
+import IconBtn from './components/UI/IconBtn';
+import Dropdown from './components/UI/Dropdown';
+import { Text } from 'react-native';
 
 const Tabs = createBottomTabNavigator();
 
@@ -35,7 +38,7 @@ export default function App() {
 
     return (
         <>
-            <StatusBar style="dark" backgroundColor={COLORS.bgAlt} />
+            <StatusBar style="dark" backgroundColor={COLORS.add} />
             <NavigationContainer>
                 <Tabs.Navigator
                     screenOptions={{
@@ -45,18 +48,18 @@ export default function App() {
                             letterSpacing: .5,
                         },
                         headerStyle: {
-                            backgroundColor: COLORS.bgAlt,
+                            backgroundColor: COLORS.add,
                             // borderBottomWidth: 2,
                             // borderBottomColor: COLORS.text,
                             shadowColor: COLORS.text,
                             shadowOpacity: 0.5,
-                            shadowRadius: 5
+                            shadowRadius: 5,
                         },
                         tabBarStyle: {
-                            backgroundColor: COLORS.bgAlt,
+                            backgroundColor: COLORS.add,
                             shadowColor: COLORS.text,
                             shadowOpacity: 0.5,
-                            shadowRadius: 5
+                            shadowRadius: 5,
                         },
                         headerTintColor: COLORS.text,
                         tabBarActiveTintColor: COLORS.main,
@@ -71,7 +74,10 @@ export default function App() {
                         name="Lists"
                         component={ListsScreen}
                         options={{
-                            tabBarIcon: ({color}) => <Ionicons name="list" color={color} size={24} />
+                            tabBarIcon: ({color}) => <Ionicons name="list" color={color} size={32} />,
+                            headerRight: () => (
+                                <Dropdown text={null} icon='menu'><Text>asdfasdf</Text></Dropdown>
+                            ),
                         }}
                     />
 
@@ -79,7 +85,7 @@ export default function App() {
                         name="Profile"
                         component={ProfileScreen}
                         options={{
-                            tabBarIcon: ({color}) => <Ionicons name="settings-outline" color={color} size={24} />
+                            tabBarIcon: ({color}) => <Ionicons name="person-outline" color={color} size={24} />
                         }}
                     />
                 </Tabs.Navigator>

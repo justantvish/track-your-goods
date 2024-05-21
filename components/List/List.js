@@ -24,12 +24,13 @@ export default List;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: '100%'
+        width: '100%',
     },
     list: {
         paddingVertical: 24,
         paddingHorizontal: 16,
         width: '100%',
         flex: 1,
+        backgroundColor: COLORS.bgAlt
     }
 });

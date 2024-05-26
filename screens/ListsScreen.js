@@ -1,6 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native';
-import { useFonts as useRubik, Rubik_400Regular } from '@expo-google-fonts/rubik';
-import { useFonts, Oswald_700Bold } from '@expo-google-fonts/oswald';
+import { View, StyleSheet } from 'react-native';
 import { COLORS } from '../constants/colors';
 import List from '../components/List/List';
 

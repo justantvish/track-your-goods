@@ -2,12 +2,14 @@ import { View, Text, StyleSheet } from 'react-native';
 import { COLORS } from '../../constants/colors';
 import { FONTS } from '../../constants/fonts';
 import IconBtn from '../UI/IconBtn';
+import ModalDrop from '../UI/ModalDrop';
 
 const Item = ({item}) => {
     return (
         <View style={styles.item}>
             <Text style={styles.text}>{item.name}</Text>
-            <IconBtn icon="ellipsis-vertical"/>
+            {/* <IconBtn icon="ellipsis-vertical"/> */}
+            <ModalDrop/>
         </View>
     );
 }

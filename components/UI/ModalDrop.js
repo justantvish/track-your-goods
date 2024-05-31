@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {Modal, StyleSheet, Text, Pressable, View} from 'react-native';
+import IconBtn from './IconBtn';
 
-const ModalDrop = () => {
+const ModalDrop = ({children}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View style={styles.centeredView}>
+    <View style={styles.modal}>
       <Modal
         animationType="slide"
         transparent={true}
@@ -12,8 +13,8 @@ const ModalDrop = () => {
         onRequestClose={() => {
           setModalVisible(!modalVisible);
         }}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalBlock}>
             <Text style={styles.modalText}>Hello World!</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
@@ -23,29 +24,24 @@ const ModalDrop = () => {
           </View>
         </View>
       </Modal>
-      <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}>
-        <Text style={styles.textStyle}>Show Modal</Text>
-      </Pressable>
+      <IconBtn icon="ellipsis-vertical" onPress={() => setModalVisible(true)} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  centeredView: {
+    modalOverlay: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 22,
+    height: '100%',
+    position: 'relative',
+    backgroundColor: 'rgba(0,0,0,.7)',
     
   },
-  modalView: {
-    margin: 20,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
+  modalBlock: {
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    padding: 29,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -54,6 +50,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   button: {
     borderRadius: 20,

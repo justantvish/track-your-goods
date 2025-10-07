@@ -36,3 +36,11 @@ yarn-error.*
 
 # package
 package-lock.json
+pnpm-lock.yaml
+
+.vscode/
+
+firebase/config.ts
+
+.env
+.env.*

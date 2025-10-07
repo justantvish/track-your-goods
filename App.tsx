@@ -23,7 +23,7 @@ export default function App() {
     let [rubikLoaded, rubikError] = useRubik({
         Rubik_400Regular,
     });
-    
+
     if (!oswaldLoaded && !oswaldfontError) {
         return null;
     }
@@ -32,7 +32,7 @@ export default function App() {
         return null;
     }
 
-    NavigationBar.setBackgroundColorAsync('#ffffff00');
+    NavigationBar.setBackgroundColorAsync('#ffffff');
     NavigationBar.setBehaviorAsync('inset-swipe');
     NavigationBar.setPositionAsync('absolute');
 
@@ -45,7 +45,7 @@ export default function App() {
                         headerTitleStyle: {
                             fontSize: 28,
                             fontFamily: 'Oswald_700Bold',
-                            letterSpacing: .5,
+                            letterSpacing: 0.5,
                         },
                         headerStyle: {
                             backgroundColor: COLORS.add,
@@ -58,25 +58,24 @@ export default function App() {
                         tabBarStyle: {
                             backgroundColor: COLORS.add,
                             shadowColor: COLORS.text,
-                            shadowOpacity: 0.5,
-                            shadowRadius: 5,
                         },
-                        headerTintColor: COLORS.text,
-                        tabBarActiveTintColor: COLORS.main,
-                        tabBarInactiveTintColor: COLORS.text,
                         tabBarLabelStyle: {
                             fontSize: 15,
-                            letterSpacing: .09
-                        }
+                            letterSpacing: 0.09,
+                        },
                     }}
                 >
                     <Tabs.Screen
                         name="Lists"
                         component={ListsScreen}
                         options={{
-                            tabBarIcon: ({color}) => <Ionicons name="list" color={color} size={32} />,
+                            tabBarIcon: ({ color }) => (
+                                <Ionicons name="list" color={color} size={32} />
+                            ),
                             headerRight: () => (
-                                <Dropdown text={null} icon='menu'><Text>asdfasdf</Text></Dropdown>
+                                <Dropdown text={null} icon="menu">
+                                    <Text>asdfasdf</Text>
+                                </Dropdown>
                             ),
                         }}
                     />
@@ -85,7 +84,9 @@ export default function App() {
                         name="Profile"
                         component={ProfileScreen}
                         options={{
-                            tabBarIcon: ({color}) => <Ionicons name="person-outline" color={color} size={24} />
+                            tabBarIcon: ({ color }) => (
+                                <Ionicons name="person-outline" color={color} size={24} />
+                            ),
                         }}
                     />
                 </Tabs.Navigator>

@@ -1,19 +1,17 @@
 {
   "expo": {
-    "name": "trackyourgoods",
-    "slug": "trackyourgoods",
+    "name": "track-your-goods",
+    "slug": "track-your-goods",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
     "ios": {
       "supportsTablet": true
     },
@@ -22,23 +20,11 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "runtimeVersion": {
-        "policy": "sdkVersion"
-      }
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-        [
-            "expo-font",
-            {
-                "fonts": [
-                    "node_modules/@expo-google-fonts/rubik/Rubik_400Regular.ttf",
-                    "node_modules/@expo-google-fonts/oswald/Oswald_700Bold.ttf"
-                ]
-            }
-        ]
-    ]
+    }
   }
 }
